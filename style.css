@@ -1,0 +1,23 @@
+header {
+    background-color: maroon;
+    text-align: center;
+    font-size: 26px;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+#p {
+    text-align: center;
+}
+
+#timer {
+    font-weight: bold;
+}
+
+#button__wrapper {
+    display: flex;
+}
+
+#button {
+    justify-content: center;
+}

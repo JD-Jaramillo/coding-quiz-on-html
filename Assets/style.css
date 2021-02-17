@@ -1,0 +1,34 @@
+body {
+    background-color: #F1D1B5;
+}
+
+header {
+    background-color: #568EA6;
+    color: #F18C8E;
+    text-align: center;
+    font-size: 26px;
+    font-family: sans-serif;
+    padding: 20px;
+    height: 100px;
+}
+
+#p {
+    text-align: center;
+    color: #305F72;
+}
+
+#timer {
+    font-weight: bold;
+    text-align: center;
+}
+
+#button__wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#button {
+    background-color: #568EA6;
+    color: #F18C8E;
+    margin: 10px;
+}
