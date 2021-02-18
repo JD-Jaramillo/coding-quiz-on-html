@@ -12,15 +12,38 @@
     <header>
         <h1>Coding Quiz on HTML</h1>
     </header>
-    <div id="p">
-        <p>This is an HTML coding quiz, created to test your knowledge of HTML. Press the start button below to begin
-            the quiz, have fun!
-        </p>
+    <div id="codingQuiz">
+        <div id="p">
+            <p>This is an HTML coding quiz, created to test your knowledge of HTML. Press the start button below to
+                begin
+                the quiz, have fun!
+            </p>
+        </div>
+        <div id="timer">60 seconds for the quiz</div>
+        <div id="button__wrapper"><button id="button">Start Quiz</button></div>
+        <div id="text-block">
+            <div id="questions__wrapper">
+                <h2 id="questions"></h2>
+            </div>
+            <div id="answers__wrapper">
+                <button class="answerBtn" id="answerA" data-answer="a"></button>
+                <button class="answerBtn" id="answerB" data-answer="b"></button>
+                <button class="answerBtn" id="answerC" data-answer="c"></button>
+                <button class="answerBtn" id="answerD" data-answer="d"></button>
+            </div>
+        </div>
+        <div id="statusBox"></div>
     </div>
-    <div id="timer">Timer</div>
-    <div id="button__wrapper"><button id="button">Start Quiz</button></div>
-
-    <ul id="questions"></ul>
+    <div id="final__results">
+        <h3>Initials</h3>
+        <h3>Score</h3>
+        <div id="initials"></div>
+        <div id="scores"></div>
+    </div>
+    <div id="final__results-buttons">
+        <buttons id="play again">Play Again</buttons>
+        <buttons id="clear scores">Clear Scores</buttons>
+    </div>
 
     <script src="./Assets/animation.js"></script>
 </body>

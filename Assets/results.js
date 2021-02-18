@@ -1,0 +1,1 @@
+var playAgainBtn = document.getElementById('play__again');

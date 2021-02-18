@@ -1,5 +1,6 @@
 body {
     background-color: #F1D1B5;
+    font-family: sans-serif;
 }
 
 header {
@@ -7,10 +8,10 @@ header {
     color: #F18C8E;
     text-align: center;
     font-size: 26px;
-    font-family: sans-serif;
-    padding: 20px;
+    padding: 5px;
     height: 100px;
 }
+
 
 #p {
     text-align: center;
@@ -31,4 +32,27 @@ header {
     background-color: #568EA6;
     color: #F18C8E;
     margin: 10px;
+}
+
+#answers__wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#questions {
+    text-align: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}
+
+#statusBox {
+    text-align: center;
+    margin: 10px;
+    color: #305F72;
 }
