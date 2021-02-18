@@ -18,7 +18,6 @@ A coding quiz designed to test the users HTML knowledge, while timed and then sc
 
 
 ## JS 
-Created a series of prompts that if validated by the user than run through a loop several times (until the length of characters that the user requested is reached). After passing through this loop and being filtered out to remove the 'undefined' characters the charaters are then added to the password variable which is then in turn sent to the next fucntion which writes this password in the text area for the user to see. 
 
 Link to deployed password generator: [Deployed site]()
 
@@ -39,7 +38,7 @@ THEN I can save my initials and my score
 
 ## Installation
 
-There is no need to install anything, to use the password generator simply follow the link below. 
+There is no need to install anything, to use the coding quiz simply follow the link below. 
 
 See deployed site here: [Deployed Site]()
 
