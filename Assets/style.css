@@ -6,10 +6,12 @@ body {
 header {
     background-color: #568EA6;
     color: #F18C8E;
-    text-align: center;
     font-size: 26px;
-    padding: 5px;
+    padding:5px;
     height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -28,7 +30,7 @@ header {
     justify-content: center;
 }
 
-#button {
+#start__button {
     background-color: #568EA6;
     color: #F18C8E;
     margin: 10px;
@@ -56,3 +58,20 @@ header {
     margin: 10px;
     color: #305F72;
 }
+
+.submit__button {
+    background-color: #568EA6;
+    color: #F18C8E;
+    margin: 5px;
+    padding: 5px;
+}
+
+.final__results-button {
+    background-color: #568EA6;
+    color: #F18C8E;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+

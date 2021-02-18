@@ -1,5 +1,5 @@
 let timerEl = document.getElementById('timer');
-let startBtn = document.getElementById('button');
+let startBtn = document.getElementById('start__button');
 let questionsEl = document.getElementById('questions');
 let resultsEl = document.getElementById('final__results');
 let answerABtn = document.getElementById('answerA');
@@ -55,7 +55,7 @@ let quizQuestions = [{
 ];
 
 let timer;
-let losses = 0;
+let lost = 0;
 let wins = 0;
 let won = false;
 var questionsIndex = quizQuestions.length;
@@ -89,7 +89,6 @@ function verifyAnswers(answer) {
 
     if (answer === correctAnswer && currentQuestionIndex !== questionsIndex) {
         timer += 5;
-        wins++;
         statusBox.innerHTML = 'Correct! Let us go for another right answer! You gained 5 seconds'
 
         currentQuestionIndex++;
@@ -97,7 +96,6 @@ function verifyAnswers(answer) {
     } else if (answer !== correctAnswer && currentQuestionIndex !== questionsIndex) {
         statusBox.innerHTML = 'Not Correct! Try again for a correct answer on the question above. You lost 5 seconds'
         timer -= 5;
-        looses++;
         console.log('timerValue', timer);
 
         currentQuestionIndex++;
@@ -109,7 +107,7 @@ function verifyAnswers(answer) {
 
 function initTimer() {
     console.log('init Timer hit');
-    timer = 3;
+    timer = 10;
     won = false;
 
     var timerInterval = setInterval(function () {
@@ -119,7 +117,7 @@ function initTimer() {
 
         if (timer <= 0) {
             console.log('hit zero');
-            losses++;
+            lost++;
             clearInterval(timerInterval);
             finalResults();
             textBlock.classList.remove('display-block');
@@ -148,35 +146,50 @@ answerBtns.forEach((button) => {
     });
 });
 
-let finalScores = document.getElementById('final__results');
-let initialsDiv = document.getElementById('initials');
-let scoresDiv = document.getElementById('scores');
+// let finalScores = document.getElementById('final__results');
+// let initialsDiv = document.getElementById('initials');
+// let scoresDiv = document.getElementById('scores');
 
 // Function for displaying final scores after game is over, here you can input initial and save 
-function finalScoreinput() {
-    console.log(finalScoreinput);
-    quizBody.style.display = "none";
-    finalScores.style.display = "flex";
-    initialsDiv.value = "";
-    scoresDiv.textContent = "You got " + wins + " out of " + quizQuestions.length + " correct!";
-}
+// function finalScoreinput() {
+//     console.log(finalScoreinput);
+//     quizBody.style.display = "none";
+//     finalScores.style.display = "flex";
+//     initialsDiv.value = "";
+//     scoresDiv.textContent = "You got " + wins + " out of " + quizQuestions.length + " correct!";
+
+//     if (initialsDiv.value === "") {
+//         initialsDiv.textContent("Initials cannot be blank");
+//         return false;
+//     } else {
+//         var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+//         var player = initialsDiv.value.trim();
+//         var currentHighscore = {
+//             name: player,
+//             score: wins
+//         };
+//     }
 
 
 // function for showing final resultss, user can save initials and score 
 
 function finalResults() {
     console.log("Final Results function hit");
-    finalScoreinput();
-
-    // currentUrl = window.location.href;
-    // console.log(currentUrl);
-    // currentUrl.replace('index', 'finalresults');
-    // window.location.href = currentUrl;
+    // finalScoreinput();
+    if (timer > 0) {
+        wins++;
+    } else {
+        lost++;
+    }
+    // Need something here to send the final wins and lost to local storage 
+    localStorage.setItem("wins", JSON.stringify(wins));
+    localStorage.setItem("lost", JSON.stringify(lost));
+    localStorage.setItem("timer", JSON.stringify(timer));
+    window.location.href = "finalresults.html"
 
 }
 
 
 startBtn.addEventListener("click", startQuiz);
 console.log("button activated");
-
 
