@@ -11,17 +11,20 @@ A coding quiz designed to test the users HTML knowledge, while timed and then sc
 * [Contributing](#Contributing)
 
 ## HTML
-
+Added two HTML pages for the coding quiz, one with the actual quiz and another one with the final scores and total wins and losses.
 
 ## CSS
-
+Added a CSS page to make the coding quiz gane look up good to the user. 
 
 
 ## JS 
+Worked on several functions in order to make the codin quiz work, also added worked on a second JS page for the final scores. 
 
-Link to deployed password generator: [Deployed site]()
+Link to deployed coding quiz: [Deployed site](https://jd-jaramillo.github.io/coding-quiz-on-html/)
 
-![image of first user prompt]()
+![image of game before clicking start](/images/initial-start-of-game.png)
+![image of game during countdown](/images/game-during-countdown.png)
+![image of final scores page](/images/final-scores.png)
 
 ## Requirements
 GIVEN I am taking a code quiz
@@ -40,13 +43,13 @@ THEN I can save my initials and my score
 
 There is no need to install anything, to use the coding quiz simply follow the link below. 
 
-See deployed site here: [Deployed Site]()
+See deployed site here: [Deployed Site](https://jd-jaramillo.github.io/coding-quiz-on-html/)
 
 
 See repository here: [GitHub Repo](https://github.com/JD-Jaramillo/coding-quiz-on-html)
 
 ## Contributing
 
-If you have any tips or ideas on how to improve this password generator please reach out to me directly. 
+If you have any tips or ideas on how to improve this coding quiz please reach out to me directly. 
 
 Email: Jaramillo784@gmail.com
