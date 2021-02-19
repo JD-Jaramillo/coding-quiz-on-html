@@ -22,7 +22,7 @@ Worked on several functions in order to make the codin quiz work, also added wor
 
 Link to deployed coding quiz: [Deployed site](https://jd-jaramillo.github.io/coding-quiz-on-html/)
 
-![image of game before clicking start](/images/initial-start-of-game.png)
+![image of game before clicking start](/images/game-start.png)
 ![image of game during countdown](/images/game-during-countdown.png)
 ![image of final scores page](/images/final-scores.png)
 
