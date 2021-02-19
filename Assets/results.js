@@ -7,14 +7,14 @@ var playAgainBtn = document.getElementById('play__again');
 var clearScoresBtn = document.getElementById('clear__scores');
 var submitBtn = document.getElementById('submit__button');
 
-var currentHighScore = JSON.parse(localStorage.getItem("timer"));
+var currentHighScore = JSON.parse(localStorage.getItem("timer")) || [];
 
-// Function for submitting initials and starting High scores
+// Function for displaying final scores after game is over and you have submited your initials
 function initiateCurrentScores() {
-    console.log(inititateHighScores);
+    console.log("inititateCurrentScores", initiateCurrentScores);
 
     if (initialsInput.value === "") {
-        initialsInput.value = "Initials cannot be blank"
+        alert('Initials cannot be blank');
         return false;
     } else {
         var player = initialsInput.value.trim();
@@ -22,27 +22,23 @@ function initiateCurrentScores() {
             name: player,
             score: currentHighScore,
         };
-        finalScoreInput();
+
+        var savedWins = document.getElementById('savedWins');
+        var savedLost = document.getElementById('savedLost');
+        var winPoints = JSON.parse(localStorage.getItem("wins"));
+        var lostPoints = JSON.parse(localStorage.getItem("lost"));
+        var allSavedInitials = JSON.stringify(localStorage.getItem("savedInitials")) || [];
+
+        JSON.stringify(initialsInput);
+        console.log("initials");
+        allSavedIntitals.textContent = initialsInput.value;
+        savedHighScore.textContent = currentHighScore;
+        savedWins.textContent = winPoints;
+        savedLost.textContent = lostPoints;
+
     }
 }
 
-
-// Function for displaying final scores after game is over and you have submited your initials inthe function above
-function finalScoreInput() {
-    console.log(finalScoreInput);
-
-    var savedWins = document.getElementById('savedWins');
-    var savedLost = document.getElementById('savedLost');
-    var winPoints = JSON.parse(localStorage.getItem("wins"));
-    var lostPoints = JSON.parse(localStorage.getItem("lost"));
-    var allSavedInitials = JSON.parse(localStorage.getItem("savedInitials")) || [];
-
-    allSavedIntitals.textContent = initialsInput + allSavedInitials;
-    savedHighscore.textContent = "You got a score of " + currentHighScore;
-    savedWins.textContent = winPoints;
-    savedLost.textContent = lostPoints;
-
-}
 
 // Need this for user to be able to return to game 
 function returnToGame() {
@@ -55,7 +51,7 @@ function clearScores() {
     // need this to clear scores in the local storage
     window.localStorage.clear();
     allSavedIntitals.textContent = "";
-    savedHighscore.textContent = "";
+    savedHighScore.textContent = "";
 };
 
 

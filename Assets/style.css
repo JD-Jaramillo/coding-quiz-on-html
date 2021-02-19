@@ -59,7 +59,7 @@ header {
     color: #305F72;
 }
 
-.submit__button {
+#submit__button {
     background-color: #568EA6;
     color: #F18C8E;
     margin: 5px;
@@ -77,15 +77,17 @@ header {
     margin: 10px;
     padding: 10px;
     margin-left: 150px;
+    align-items: center;
 
 }
 
 .score__stats {
     align-items: right;
+    text-align: center;
 }
 
 .score__stats-H3 {
-    justify-content: right;
+    padding-left: 100px;
 }
 
 .scoreH3 {

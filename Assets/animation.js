@@ -1,3 +1,4 @@
+// List of variables targeting html elements used later on 
 let timerEl = document.getElementById('timer');
 let startBtn = document.getElementById('start__button');
 let questionsEl = document.getElementById('questions');
@@ -11,7 +12,7 @@ let statusBox = document.getElementById('statusBox');
 let textBlock = document.getElementById('text-block');
 let quizBody = document.getElementById('codingQuiz');
 
-
+// Array of quiz questions and answers
 let quizQuestions = [{
     question: "Which of these tags is a self closing tag?",
     a: "<div>",
@@ -54,6 +55,7 @@ let quizQuestions = [{
 },
 ];
 
+// Global variables used in below functions
 let timer;
 let lost = 0;
 let wins = 0;
@@ -64,50 +66,54 @@ var currentQuestionIndex = 0;
 // Questions appear and it has 4 options to choose from, 
 function htmlQuestions() {
 
+    // Check to see if we are at the last index, if it is we go to final results
     if (currentQuestionIndex === questionsIndex) {
         return finalResults();
     }
 
+    // Functions runs every time unless we are on the last question
     var currentQuestion = quizQuestions[currentQuestionIndex];
 
+    // grabbing the different parts of the array as appropriate and adding them to the appropriate button
     questionsEl.textContent = currentQuestion.question.toString();
     answerABtn.textContent = currentQuestion.a.toString();
     answerBBtn.textContent = currentQuestion.b.toString();
     answerCBtn.textContent = currentQuestion.c.toString();
     answerDBtn.textContent = currentQuestion.d.toString();
-    console.log('currentQuestion', currentQuestion = quizQuestions[currentQuestionIndex]);
 
 };
 
 let correctAnswer;
 
+// function runs to verify if the button selected is true or false
 function verifyAnswers(answer) {
-    console.log('verifyAnswers function ran');
-    console.log('quizQuestions[currentQuestionIndex]', quizQuestions[currentQuestionIndex]);
     correctAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
-    console.log('verifyAnswer', verifyAnswers);
 
+    // if the answer is correct, add 5 seconds to the timer and give a message
+    // then run htmlQuestions() functions to generate new question
     if (answer === correctAnswer && currentQuestionIndex !== questionsIndex) {
         timer += 5;
-        statusBox.innerHTML = 'Correct! Let us go for another right answer! You gained 5 seconds'
-
+        statusBox.innerHTML = 'Correct! Let us go for another right answer! You gained 5 seconds';
         currentQuestionIndex++;
         htmlQuestions();
+
+        // if not correct, remove 5 seconds and give a message
+        // then run htmlQuestions() functions to generate new question
     } else if (answer !== correctAnswer && currentQuestionIndex !== questionsIndex) {
-        statusBox.innerHTML = 'Not Correct! Try again for a correct answer on the question above. You lost 5 seconds'
+        statusBox.innerHTML = 'Not Correct! Try again for a correct answer on the question above. You lost 5 seconds';
         timer -= 5;
-        console.log('timerValue', timer);
-
         currentQuestionIndex++;
         htmlQuestions();
+
+        //  otherwise run the finalResults function
     } else {
         finalResults();
     }
 };
 
+// function initTimer() that runs the timer
 function initTimer() {
-    console.log('init Timer hit');
-    timer = 10;
+    timer = 60;
     won = false;
 
     var timerInterval = setInterval(function () {
@@ -115,8 +121,8 @@ function initTimer() {
         let msg = "seconds left until quiz is over!";
         timerEl.textContent = timer + " " + msg;
 
+        // if the timer hits 0 they lost, clear timer and run the final results function. Also, remove the questions block
         if (timer <= 0) {
-            console.log('hit zero');
             lost++;
             clearInterval(timerInterval);
             finalResults();
@@ -126,8 +132,8 @@ function initTimer() {
     }, 1000);
 };
 
+// this hides the start button and shows the text block for the questions when the quiz starts, starts the timer and starts the htmlQuestions() function 
 function startQuiz() {
-    console.log("start Quiz", startQuiz);
     htmlQuestions()
     initTimer();
     startBtn.classList.add('display-none');
@@ -137,10 +143,11 @@ function startQuiz() {
 
 let answerBtns = document.querySelectorAll('.answerBtn');
 
+// This attaches a click event to each answer button to run the verifyAnswers function onclick
 answerBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
         let answerSelected = e.target.dataset.answer;
-        console.log('answerSelected', answerSelected);
+
         verifyAnswers(answerSelected);
     });
 });
@@ -149,11 +156,14 @@ answerBtns.forEach((button) => {
 
 function finalResults() {
     console.log("Final Results function hit");
-    // finalScoreinput();
+    // adding scores to win if the timer is greater than 0
     if (timer > 0) {
         wins++;
+
+        // add scores to the lost if the timer is 0
     } else {
         lost++;
+
     }
     // Need something here to send the final wins and lost to local storage 
     localStorage.setItem("wins", JSON.stringify(wins));
@@ -163,7 +173,7 @@ function finalResults() {
 
 };
 
-
+// When you click the start button the startQuiz function is triggered
 startBtn.addEventListener("click", startQuiz);
-console.log("button activated");
+
 
