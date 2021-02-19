@@ -77,7 +77,7 @@ function htmlQuestions() {
     answerDBtn.textContent = currentQuestion.d.toString();
     console.log('currentQuestion', currentQuestion = quizQuestions[currentQuestionIndex]);
 
-}
+};
 
 let correctAnswer;
 
@@ -103,7 +103,7 @@ function verifyAnswers(answer) {
     } else {
         finalResults();
     }
-}
+};
 
 function initTimer() {
     console.log('init Timer hit');
@@ -133,43 +133,17 @@ function startQuiz() {
     startBtn.classList.add('display-none');
     textBlock.classList.add('display-block');
 
-}
+};
 
 let answerBtns = document.querySelectorAll('.answerBtn');
 
 answerBtns.forEach((button) => {
-    console.log('button clicked');
     button.addEventListener('click', (e) => {
         let answerSelected = e.target.dataset.answer;
         console.log('answerSelected', answerSelected);
         verifyAnswers(answerSelected);
     });
 });
-
-// let finalScores = document.getElementById('final__results');
-// let initialsDiv = document.getElementById('initials');
-// let scoresDiv = document.getElementById('scores');
-
-// Function for displaying final scores after game is over, here you can input initial and save 
-// function finalScoreinput() {
-//     console.log(finalScoreinput);
-//     quizBody.style.display = "none";
-//     finalScores.style.display = "flex";
-//     initialsDiv.value = "";
-//     scoresDiv.textContent = "You got " + wins + " out of " + quizQuestions.length + " correct!";
-
-//     if (initialsDiv.value === "") {
-//         initialsDiv.textContent("Initials cannot be blank");
-//         return false;
-//     } else {
-//         var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
-//         var player = initialsDiv.value.trim();
-//         var currentHighscore = {
-//             name: player,
-//             score: wins
-//         };
-//     }
-
 
 // function for showing final resultss, user can save initials and score 
 
@@ -187,7 +161,7 @@ function finalResults() {
     localStorage.setItem("timer", JSON.stringify(timer));
     window.location.href = "finalresults.html"
 
-}
+};
 
 
 startBtn.addEventListener("click", startQuiz);
