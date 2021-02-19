@@ -1,3 +1,4 @@
+// List of variables targetign HTML elements used later on 
 let finalScores = document.getElementById('final__results');
 let initialsInput = document.getElementById('initials__input');
 let savedIntitals = document.getElementById('savedInitials');
@@ -11,43 +12,31 @@ var currentHighScore = JSON.parse(localStorage.getItem("timer")) || [];
 
 // Function for displaying final scores after game is over and you have submited your initials
 function initiateCurrentScores() {
-    console.log("inititateCurrentScores", initiateCurrentScores);
 
     if (initialsInput.value === "") {
         alert('Initials cannot be blank');
         return false;
     } else {
-        var player = initialsInput.value.trim();
-        var showCurrentHighScore = {
-            name: player,
-            score: currentHighScore,
-        };
-
+        // Variables added for the Sore Stats table to work, getting the wins and losses from local storage
         var savedWins = document.getElementById('savedWins');
         var savedLost = document.getElementById('savedLost');
         var winPoints = JSON.parse(localStorage.getItem("wins"));
         var lostPoints = JSON.parse(localStorage.getItem("lost"));
-        var allSavedInitials = JSON.stringify(localStorage.getItem("savedInitials")) || [];
 
-        JSON.stringify(initialsInput);
-        console.log("initials");
-        allSavedIntitals.textContent = initialsInput.value;
+        allSavedIntitals.textContent = initialsInput.value.trim();
         savedHighScore.textContent = currentHighScore;
         savedWins.textContent = winPoints;
         savedLost.textContent = lostPoints;
-
     }
 }
 
 
 // Need this for user to be able to return to game 
 function returnToGame() {
-    console.log('returnToGame', returnToGame)
     window.location.href = "index.html"
 }
 
 function clearScores() {
-    console.log('clearScores', clearScores)
     // need this to clear scores in the local storage
     window.localStorage.clear();
     allSavedIntitals.textContent = "";
@@ -55,12 +44,9 @@ function clearScores() {
 };
 
 
-
+// This are the click event listeners for the 3 buttons that run this page, with the submit button initain the currentScores function
 submitBtn.addEventListener("click", initiateCurrentScores);
-console.log('submit button', submitBtn);
-
+// Button allows user to retutn to game
 playAgainBtn.addEventListener("click", returnToGame);
-console.log('play again button', playAgainBtn);
-
+// Button allows user to clear scores 
 clearScoresBtn.addEventListener("click", clearScores);
-console.log('clear scores button', clearScoresBtn);

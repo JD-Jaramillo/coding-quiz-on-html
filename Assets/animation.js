@@ -12,7 +12,7 @@ let statusBox = document.getElementById('statusBox');
 let textBlock = document.getElementById('text-block');
 let quizBody = document.getElementById('codingQuiz');
 
-// Array of quiz questions and answers
+// Array of quiz questions and answers (I have it hidden to save space)
 let quizQuestions = [{
     question: "Which of these tags is a self closing tag?",
     a: "<div>",
